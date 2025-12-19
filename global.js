@@ -701,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loaderHTML = `
         <div id="loader-wrapper">
             <div class="loader-content">
-                <span class="material-symbols-outlined loader-logo">terminal</span>
+                <img src="mrcoder.png" class="loader-logo" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--nav-hover); box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);">
                 <div class="loader-name">Mahmoud Sabry El-Khawass</div>
                 <div class="loader-nickname">mr-coder-2027</div>
                 <div class="loader-bar-container">
@@ -780,10 +780,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="close-modal">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <h2 style="margin-bottom: 0.5rem; font-weight: 800;">Developer Information</h2>
-            <div style="font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); display: flex; justify-content: center;">
-                <span class="material-symbols-outlined" style="font-size: 80px; color: var(--nav-hover);">terminal</span>
+            <div style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                <img src="mrcoder.png" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--nav-hover); box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
             </div>
+            <h2 style="margin-bottom: 0.5rem; font-weight: 800;">Developer Information</h2>
             <h2 style="margin-bottom: 1rem; color: var(--nav-hover); font-size: 1.8rem; letter-spacing: -0.5px;">Mahmoud Sabry El-Khawass</h2>
             <p style="margin-bottom: 2rem; line-height: 1.7; color: #555;" id="modalDesc">
                 This academic platform was professionally architected and enhanced by 
@@ -1136,7 +1136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div style="padding: 15px 20px;">
                             <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 15px;">
-                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--nav-hover); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">MS</div>
+                                <img src="mrcoder.png" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #444;">
                                 <div>
                                     <div style="font-weight: 600; color: #e4e6eb;">Mahmoud Sabry El-Khawass</div>
                                     <div style="background: #333; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; color: #b0b3b8;">
