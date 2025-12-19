@@ -394,15 +394,17 @@ document.addEventListener('DOMContentLoaded', () => {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.7); /* Slightly darker for better focus */
+            backdrop-filter: blur(8px);
             z-index: 10000;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* MOBILE FIX: Start from top to avoid cutting off Close button */
             justify-content: center;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
+            overflow-y: auto; /* Allow scrolling the whole overlay */
+            padding: 40px 0;   /* Space for top/bottom */
         }
 
         .modal-overlay.active {
@@ -416,12 +418,37 @@ document.addEventListener('DOMContentLoaded', () => {
             border-radius: 20px;
             max-width: 450px;
             width: 90%;
+            margin-top: auto;   /* Centering trick with flex-start */
+            margin-bottom: auto;
             text-align: center;
             box-shadow: 0 25px 50px rgba(0,0,0,0.25);
             transform: translateY(30px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.05); /* Make it visible */
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #333;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .close-modal:hover { 
+            background: #f43f5e; 
+            color: white; 
+            transform: rotate(90deg);
         }
 
         body.dark-mode .dev-modal {
@@ -434,18 +461,19 @@ document.addEventListener('DOMContentLoaded', () => {
             transform: translateY(0);
         }
 
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #888;
-            transition: color 0.2s;
+        @media (max-width: 480px) {
+            .dev-modal {
+                padding: 1.5rem;
+                padding-top: 3.5rem;
+                margin-top: 20px; /* Ensure top space on mobile */
+            }
+            .close-modal {
+                top: 10px;
+                right: 10px;
+                background: var(--nav-hover);
+                color: white;
+            }
         }
-        .close-modal:hover { color: #f43f5e; }
 
         @media (max-width: 900px) {
             .search-input { width: 100px; }
