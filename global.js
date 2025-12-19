@@ -1083,9 +1083,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <button id="copyLinkBtn" class="share-btn" style="background: var(--pastel-gray); color: var(--nav-text);">
                 <span class="material-symbols-outlined">content_copy</span> Copy Link
             </button>
-            <button id="previewShareBtn" class="share-btn" style="background: var(--nav-hover); color: white;">
-                <span class="material-symbols-outlined">visibility</span> Live Preview
-            </button>
         </div>
     `;
     const container = document.querySelector('.container');
@@ -1100,53 +1097,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 copyBtn.innerHTML = '<span class="material-symbols-outlined">check</span> Copied!';
                 setTimeout(() => copyBtn.innerHTML = originalText, 2000);
             });
-        });
-    }
-
-    // Preview Share Modal Logic (Designing a Social-like Card)
-    const previewBtn = document.getElementById('previewShareBtn');
-    if (previewBtn) {
-        previewBtn.addEventListener('click', () => {
-            const previewModalHTML = `
-                <div class="modal-overlay active" id="previewOverlay">
-                    <div class="dev-modal" style="max-width: 550px; text-align: left; padding: 0; overflow: hidden; background: #1a1a1a; color: white;">
-                        <div style="padding: 15px 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
-                            <h3 style="margin: 0; font-size: 1.1rem; color: #e4e6eb;">Create Post</h3>
-                            <button id="closePreview" style="background: none; border: none; color: #b0b3b8; cursor: pointer; font-size: 1.5rem;">&times;</button>
-                        </div>
-                        <div style="padding: 15px 20px;">
-                            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 15px;">
-                                <img src="mrcoder.png" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #444;">
-                                <div>
-                                    <div style="font-weight: 600; color: #e4e6eb;">Mahmoud Sabry El-Khawass</div>
-                                    <div style="background: #333; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; color: #b0b3b8;">
-                                        <span class="material-symbols-outlined" style="font-size: 12px;">public</span> Public
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="color: #e4e6eb; margin-bottom: 15px; font-size: 0.95rem;">شاهد هذا المرجع العربي الشامل في تجارة الأعمال الإلكترونية! 🎓🚀 Check out this awesome E-Business Study Material!</div>
-                            <div style="border: 1px solid #333; border-radius: 8px; overflow: hidden;">
-                                <img src="${metaTags['og:image']}" style="width: 100%; height: 250px; object-fit: cover;">
-                                <div style="padding: 12px; background: #242526;">
-                                    <div style="font-size: 0.75rem; color: #b0b3b8; text-transform: uppercase;">STUDYPORTAL.ACADEMY</div>
-                                    <div style="font-weight: bold; color: #e4e6eb; font-size: 1.05rem; margin-top: 4px;">${metaTags['og:title']}</div>
-                                    <div style="font-size: 0.9rem; color: #b0b3b8; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${metaTags['og:description']}</div>
-                                </div>
-                            </div>
-                            <button style="width: 100%; background: #0866ff; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 15px; cursor: pointer;">Post</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            const div = document.createElement('div');
-            div.innerHTML = previewModalHTML;
-            document.body.appendChild(div);
-
-            const close = div.querySelector('#closePreview');
-            close.onclick = () => div.remove();
-            div.querySelector('#previewOverlay').onclick = (e) => {
-                if (e.target.id === 'previewOverlay') div.remove();
-            };
         });
     }
 });
