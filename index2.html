@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Business Ch 3: Future Trends</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        :root {
+            --paper-bg: #fafbfd;
+            --line-color: #d8e2eb;
+            --text-color: #2c3e50;
+            --highlight-color: #fff67a;
+            --accent-blue: #dbeafe;
+            --accent-orange: #ffedd5;
+            --accent-green: #dcfce7;
+            --accent-pink: #fce7f3;
+            --accent-purple: #f3e8ff;
+            --accent-red: #fee2e2;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--paper-bg);
+            /* Notebook paper effect */
+            background-image: linear-gradient(var(--line-color) 1px, transparent 1px);
+            background-size: 100% 2rem;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        /* Red vertical margin line mimicking notebook paper */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 2rem;
+            bottom: 0;
+            width: 2px;
+            background-color: rgba(239, 68, 68, 0.2);
+            z-index: -1;
+        }
+
+        @media (min-width: 768px) {
+            body::before {
+                left: 4rem;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-size: 2.25rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        li::before {
+            content: "•";
+            color: #64748b;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Highlighter Effect */
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 246, 122, 0) 0%, rgba(255, 246, 122, 0.8) 5%, rgba(255, 246, 122, 0.6) 100%);
+            padding: 0 4px;
+            border-radius: 2px;
+            font-weight: 600;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        /* Layout Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid.three-col {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Block Styles */
+        .block {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .block-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .block-number {
+            font-size: 0.85rem;
+            font-weight: 800;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .block-content {
+            padding: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Color Themes */
+        .theme-blue .block-header { background-color: var(--accent-blue); color: #1e40af; }
+        .theme-orange .block-header { background-color: var(--accent-orange); color: #9a3412; }
+        .theme-green .block-header { background-color: var(--accent-green); color: #166534; }
+        .theme-pink .block-header { background-color: var(--accent-pink); color: #9d174d; }
+        .theme-purple .block-header { background-color: var(--accent-purple); color: #6b21a8; }
+        .theme-red .block-header { background-color: var(--accent-red); color: #991b1b; }
+
+        /* Full Width Sections */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Example Box */
+        .example-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #94a3b8;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .example-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #64748b;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Challenges Section Specifics */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 600px) {
+            .challenges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .challenge-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .challenge-title {
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Main Header -->
+        <header>
+            <h1>E-Business: Chapter 3</h1>
+            <h3>Future Trends &amp; Emerging Technologies</h3>
+        </header>
+
+        <div class="grid">
+            
+            <!-- Intro Block -->
+            <article class="block theme-blue full-width">
+                <div class="block-header">
+                    <h2>Introduction</h2>
+                    <span class="block-number">Overview</span>
+                </div>
+                <div class="block-content">
+                    <p>E-business continues to evolve rapidly due to <span class="highlight">technological advancements</span> and changing <span class="highlight">consumer behaviors</span>.</p>
+                    <p>Staying ahead of future trends is essential for maintaining competitiveness and growth.</p>
+                </div>
+            </article>
+
+            <!-- Trend 1 -->
+            <article class="block theme-purple">
+                <div class="block-header">
+                    <h2>AI &amp; Machine Learning</h2>
+                    <span class="block-number">Trend 01</span>
+                </div>
+                <div class="block-content">
+                    <ul>
+                        <li>Automates <span class="highlight">decision-making</span>.</li>
+                        <li>Enables data-driven insights.</li>
+                        <li>Enhances <span class="highlight">personalization</span>.</li>
+                    </ul>
+                    <div class="tag">Applications</div>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #475569;">
+                        Product recommendations, chatbots, dynamic pricing, inventory management.
+                    </p>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        Amazon's AI-powered systems optimize product suggestions and logistics efficiency.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 2 -->
+            <article class="block theme-orange">
+                <div class="block-header">
+                    <h2>Voice Commerce</h2>
+                    <span class="block-number">Trend 02</span>
+                </div>
+                <div class="block-content">
+                    <p>Growth of smart speakers has introduced <span class="highlight">voice-activated purchasing</span>.</p>
+                    <p>Businesses need to optimize content for voice search (using long-tail keywords &amp; conversational tone).</p>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        Walmart and Google have partnered to provide voice-enabled grocery shopping.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 3 -->
+            <article class="block theme-pink">
+                <div class="block-header">
+                    <h2>AR &amp; VR</h2>
+                    <span class="block-number">Trend 03</span>
+                </div>
+                <div class="block-content">
+                    <p><strong>Augmented Reality (AR):</strong> Allows customers to <span class="highlight">"try before they buy"</span> (e.g., virtual furniture, makeup).</p>
+                    <p><strong>Virtual Reality (VR):</strong> Creates <span class="highlight">immersive brand experiences</span>, especially in fashion and real estate.</p>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        L'Oreal's AR apps help users preview makeup products virtually.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 4 -->
+            <article class="block theme-blue">
+                <div class="block-header">
+                    <h2>Blockchain Technology</h2>
+                    <span class="block-number">Trend 04</span>
+                </div>
+                <div class="block-content">
+                    <p>Facilitates secure, <span class="highlight">decentralized transactions</span> and tamper-proof recordkeeping.</p>
+                    <p>Promotes transparency in supply chains and prevents fraud.</p>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        Walmart uses blockchain to track food safety from farm to store.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 5 -->
+            <article class="block theme-green">
+                <div class="block-header">
+                    <h2>Green E-Business</h2>
+                    <span class="block-number">Trend 05</span>
+                </div>
+                <div class="block-content">
+                    <ul>
+                        <li>Emphasis on carbon-neutral shipping &amp; biodegradable packaging.</li>
+                        <li>Focus on <span class="highlight">sustainable sourcing</span>.</li>
+                        <li>Eco-conscious consumers influence purchase decisions.</li>
+                    </ul>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        Shopify's carbon offsetting for deliveries to reduce environmental impact.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 6 -->
+            <article class="block theme-purple">
+                <div class="block-header">
+                    <h2>Mobile-First Experience</h2>
+                    <span class="block-number">Trend 06</span>
+                </div>
+                <div class="block-content">
+                    <p>Majority of users access platforms via smartphones.</p>
+                    <p>Focus on <span class="highlight">mobile-optimized</span> websites, apps, and payment systems.</p>
+                    <div class="example-box">
+                        <span class="example-label">Example</span>
+                        Starbucks app allows mobile orders and in-app payments.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Challenges Section -->
+            <article class="block theme-red full-width">
+                <div class="block-header">
+                    <h2>Challenges with Emerging Trends</h2>
+                    <span class="block-number">Critical Issues</span>
+                </div>
+                <div class="block-content">
+                    <div class="challenges-grid">
+                        <div class="challenge-item">
+                            <span class="challenge-title">Data Privacy</span>
+                            Managing personal data securely to comply with GDPR, CCPA.
+                        </div>
+                        <div class="challenge-item">
+                            <span class="challenge-title">Tech Investment</span>
+                            High <span class="highlight">upfront costs</span> for implementing AI, AR, and blockchain.
+                        </div>
+                        <div class="challenge-item">
+                            <span class="challenge-title">Regulations</span>
+                            Adapting to evolving international regulations, especially for cross-border trade.
+                        </div>
+                        <div class="challenge-item">
+                            <span class="challenge-title">Customer Trust</span>
+                            New tech like AI and blockchain must be <span class="highlight">transparent and ethical</span>.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Knowledge Check Section -->
+            <article class="block theme-purple full-width" id="quiz-sec-w3">
+                <div class="block-header">
+                    <h2>Knowledge Check</h2>
+                    <span class="block-number">Quiz</span>
+                </div>
+                <div class="block-content">
+                    <div id="quiz-container-w3"></div>
+                </div>
+            </article>
+
+            <script>
+                const quizDataW3 = [
+                    {
+                        question: "1. What is Augmented Reality (AR) primarily used for in E-business?",
+                        options: ["Allowing customers to try products virtually", "Increasing internet speed", "Replacing human managers", "Decentralizing payments"],
+                        answer: 0
+                    },
+                    {
+                        question: "2. Which technology promotes transparency in supply chains?",
+                        options: ["Voice Search", "Blockchain", "VR Headsets", "M-commerce"],
+                        answer: 1
+                    }
+                ];
+
+                function renderQuizW3() {
+                    const container = document.getElementById('quiz-container-w3');
+                    quizDataW3.forEach((item, index) => {
+                        const qBox = document.createElement('div');
+                        qBox.style.marginBottom = '20px';
+                        qBox.innerHTML = `<p><strong>${item.question}</strong></p>`;
+                        const opts = document.createElement('div');
+                        opts.style.display = 'grid';
+                        opts.style.gap = '10px';
+                        item.options.forEach((opt, idx) => {
+                            const b = document.createElement('button');
+                            b.innerText = opt;
+                            b.style.padding = '10px';
+                            b.style.border = '1px solid #e2e8f0';
+                            b.style.borderRadius = '6px';
+                            b.style.background = 'white';
+                            b.style.cursor = 'pointer';
+                            b.onclick = () => {
+                                Array.from(opts.children).forEach(child => child.disabled = true);
+                                if (idx === item.answer) {
+                                    b.style.background = '#dcfce7';
+                                } else {
+                                    b.style.background = '#fee2e2';
+                                    opts.children[item.answer].style.background = '#dcfce7';
+                                }
+                            };
+                            opts.appendChild(b);
+                        });
+                        qBox.appendChild(opts);
+                        container.appendChild(qBox);
+                    });
+                }
+                document.addEventListener('DOMContentLoaded', renderQuizW3);
+            </script>
+            <p>Generated Digital Infographic • Based on Week 3 E-Business Material</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Simple Interaction: Highlight block on click to focus
+        document.querySelectorAll('.block').forEach(block => {
+            block.addEventListener('click', () => {
+                // Remove active class from all others
+                document.querySelectorAll('.block').forEach(b => {
+                    if (b !== block) b.style.transform = 'translateY(0)';
+                });
+                
+                // Toggle subtle pop effect
+                block.style.transform = 'translateY(-5px)';
+            });
+        });
+    </script>
+    <script src="global.js"></script>
+</body>
+</html>

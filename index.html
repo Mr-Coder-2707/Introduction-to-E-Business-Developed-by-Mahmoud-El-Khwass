@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to E-Business | Week 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        :root {
+            /* Notebook Paper Theme */
+            --paper-bg: #ffffff;
+            --line-color: #dbebfb; /* Light blue line */
+            --margin-line: #ffcdd2; /* Red margin line */
+            --text-color: #333333;
+            --highlight-color: #fff9c4; /* Digital Yellow */
+            
+            /* Pastel Palette for Headers */
+            --pastel-blue: #bbdefb;
+            --pastel-orange: #ffe0b2;
+            --pastel-green: #c8e6c9;
+            --pastel-pink: #f8bbd0;
+            --pastel-purple: #e1bee7;
+            --pastel-gray: #eceff1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--paper-bg);
+            /* Lined Paper Pattern */
+            background-image: linear-gradient(var(--line-color) 1px, transparent 1px);
+            background-size: 100% 2rem;
+            line-height: 2rem; /* Matches line height to background lines */
+            overflow-x: hidden;
+        }
+
+        /* The Red Margin Line on the left */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 4rem;
+            width: 2px;
+            background-color: var(--margin-line);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 4rem 2rem 4rem 6rem; /* Left padding accommodates the red margin */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 2.5rem; line-height: 3rem; color: #2c3e50; }
+        h2 { font-size: 1.25rem; }
+        p { margin-bottom: 1rem; }
+        ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* Highlighter Effect */
+        .highlight {
+            background-color: var(--highlight-color);
+            padding: 0 4px;
+            border-radius: 2px;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+            font-weight: 600;
+        }
+
+        /* Block System Layout */
+        .section-block {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+
+        .block-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer; /* Suggests interactivity */
+        }
+
+        .block-number {
+            background: rgba(255,255,255,0.6);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .block-content {
+            padding: 1.5rem;
+        }
+
+        /* Header Colors */
+        .bg-blue { background-color: var(--pastel-blue); }
+        .bg-orange { background-color: var(--pastel-orange); }
+        .bg-green { background-color: var(--pastel-green); }
+        .bg-pink { background-color: var(--pastel-pink); }
+        .bg-purple { background-color: var(--pastel-purple); }
+        .bg-gray { background-color: var(--pastel-gray); }
+
+        /* Custom Visual Elements */
+        
+        /* Grid for comparisons */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            body::before { left: 1rem; }
+            .container { padding: 2rem 1rem 2rem 2rem; }
+        }
+
+        /* Definition Box */
+        .def-box {
+            border-left: 4px solid var(--pastel-blue);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            background: #f8fbff;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Process/Flow Steps */
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .flow-step:last-child {
+            border-bottom: none;
+        }
+        .flow-icon {
+            min-width: 30px;
+            height: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        /* Comparison Table Style */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #eee;
+            padding: 1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .comparison-table th {
+            background-color: #f9f9f9;
+        }
+
+        /* Model Cards (B2B, B2C etc) */
+        .model-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .model-tag {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Timeline for Evolution */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--pastel-purple);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 6px;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border: 3px solid var(--pastel-purple);
+            border-radius: 50%;
+        }
+
+        /* Case Study Cards */
+        .case-study {
+            background: #fafafa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--pastel-orange);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer / Homework Area */
+        .homework-box {
+            background: #fff;
+            border: 2px dashed var(--pastel-green);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        /* Interactive toggle */
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #555;
+            transition: transform 0.3s;
+        }
+        .collapsed .block-content {
+            display: none;
+        }
+        .collapsed .toggle-btn {
+            transform: rotate(-90deg);
+        }
+        
+        /* Sub-list style */
+        .sub-list {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #eee;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section (Page 1) -->
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <h4 style="text-transform: uppercase; letter-spacing: 2px; color: #7f8c8d; font-size: 0.9rem;">Week 1 Electronic Business Course</h4>
+        <h1 style="margin: 0.5rem 0;">Introduction to E-Business</h1>
+        <div style="display: inline-block; border-top: 2px solid #2c3e50; border-bottom: 2px solid #2c3e50; padding: 0.5rem 2rem; margin-top: 1rem;">
+            <p style="margin: 0; font-weight: 600;">Dr/Mohamed El-mahy &nbsp;|&nbsp; Eng/ Sarah Hassan</p>
+        </div>
+    </div>
+
+    <!-- Section 1: Definition & Scope (Page 2) -->
+    <div class="section-block" id="sec1">
+        <div class="block-header bg-blue" onclick="toggleSection('sec1')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">1</span>
+                <h2>Definition and Scope of E-Business</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div class="def-box">
+                <p>• E-business refers to the use of <span class="highlight">digital technologies</span> and the internet to conduct business operations.</p>
+            </div>
+            
+            <p>It involves various online activities, including transactions, marketing, and communication.</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h4>why??</h4>
+                    <ul>
+                        <li>To help businesses improve <span class="highlight">efficiency</span> and reach a <span class="highlight">broader audience</span>.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Examples :-</h4>
+                    <ul>
+                        <li>Covers e-commerce, digital services, and online marketplaces marketing, transactions, and supply chain digital management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Several Aspects of E-Business (Pages 3-5) -->
+    <div class="section-block" id="sec2">
+        <div class="block-header bg-green" onclick="toggleSection('sec2')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">2</span>
+                <h2>E-Business Encompasses Several Aspects</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            
+            <!-- Aspect 1 -->
+            <div class="flow-step">
+                <div class="flow-icon">1</div>
+                <div>
+                    <strong>E-Commerce:</strong><br>
+                    Buying and selling of goods and services online through platforms like Amazon, Shopify, and eBay.
+                </div>
+            </div>
+
+            <!-- Aspect 2 -->
+            <div class="flow-step">
+                <div class="flow-icon">2</div>
+                <div>
+                    <strong>Digital Marketing:</strong><br>
+                    Using digital channels like social media, email marketing, and search engines to promote products and engage with customers (e.g., Google Ads, Facebook Ads).
+                </div>
+            </div>
+
+            <!-- Aspect 3 -->
+            <div class="flow-step">
+                <div class="flow-icon">3</div>
+                <div>
+                    <strong>Electronic Transactions:</strong><br>
+                    Online payments and financial transactions via PayPal, Stripe, and cryptocurrency.
+                    <div class="sub-list">
+                        <p><strong>• PayPal:</strong> A secure online payment platform that allows users to send and receive money.</p>
+                        <p><strong>• Stripe:</strong> A payment gateway that enables businesses to accept online payments through credit cards and other methods.</p>
+                        <p><strong>• Cryptocurrency:</strong> Digital currencies like Bitcoin and Ethereum, which use <span class="highlight">blockchain technology</span> to facilitate secure, decentralized transactions without traditional banks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aspect 4 -->
+            <div class="flow-step">
+                <div class="flow-icon">4</div>
+                <div>
+                    <strong>Supply Chain Management (SCM):</strong><br>
+                    Enhancing logistics, inventory management, and vendor communication using digital tools like SAP and Oracle SCM.
+                    <div class="sub-list">
+                        <p><em>• SCM involves using technology to improve the efficiency of supply chain processes, including:</em></p>
+                        <ul>
+                            <li><strong>Logistics:</strong> Enhancing shipping and delivery operations to reduce costs and increase efficiency.</li>
+                            <li><strong>Inventory Management:</strong> Tracking stock levels to prevent shortages or overstocking.</li>
+                            <li><strong>Vendor Communication:</strong> Using digital tools to coordinate orders and deliveries with suppliers.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="def-box" style="margin-top: 1rem; border-color: var(--pastel-green);">
+                        <strong>Examples of SCM Tools:</strong>
+                        <ul>
+                            <li><strong>SAP SCM:</strong> A system that helps businesses optimize their supply chain operations.</li>
+                            <li><strong>Oracle SCM:</strong> Provides integrated solutions for supply chain planning and management.</li>
+                        </ul>
+                        <p><strong>Benefit:</strong> These tools help businesses streamline operations, reduce costs, and improve customer satisfaction by ensuring products are available when needed.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Section 3: Key Components (Pages 6-7) -->
+    <div class="section-block" id="sec3">
+        <div class="block-header bg-pink" onclick="toggleSection('sec3')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">3</span>
+                <h2>Key Components of E-Business</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                
+                <div style="border: 1px solid #ffd1dc; padding: 15px; border-radius: 8px;">
+                    <h4>1. E-Commerce:</h4>
+                    <p> "Online buying and selling.
+
+"Buying and selling of goods and services online through platforms like Amazon, Shopify, and eBay.</p>
+                </div>
+
+                <div style="border: 1px solid #ffd1dc; padding: 15px; border-radius: 8px;">
+                    <h4>2. Digital Marketing:</h4>
+                    <p>SEO, social media, and content marketing.</p>
+                    <ul>
+                        <li><strong>SEO (Search Engine Optimization):</strong> Optimizing websites to rank higher on search engines.</li>
+                        <li><strong>Social Media Marketing:</strong> Advertising and engaging with customers on platforms like Facebook, Instagram, and Twitter.</li>
+                        <li><strong>Content Marketing:</strong> Creating blogs, videos, and articles to attract and retain customers.</li>
+                    </ul>
+                </div>
+
+                <div style="border: 1px solid #ffd1dc; padding: 15px; border-radius: 8px;">
+                    <h4>3. Supply Chain Management (SCM):</h4>
+                    <p>Managing the flow of goods from suppliers to customers, including logistics, inventory management, and distribution to ensure efficiency and timely deliveries.</p>
+                </div>
+
+                <div style="border: 1px solid #ffd1dc; padding: 15px; border-radius: 8px;">
+                    <h4>4. Customer Relationship Management (CRM):</h4>
+                    <p>A system for managing customer interactions, tracking orders, responding to inquiries, and analyzing purchasing behavior to enhance customer satisfaction.</p>
+                </div>
+
+                <div style="border: 1px solid #ffd1dc; padding: 15px; border-radius: 8px;">
+                    <h4>5. Enterprise Resource Planning (ERP):</h4>
+                    <p>A software solution that integrates all business operations (accounting, procurement, HR, inventory management, etc.) into a single system, improving efficiency and decision-making.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top:1.5rem; padding: 1rem; background-color: #f9f9f9; border-radius: 5px; text-align: center;">
+                <span class="highlight"><strong>Benefit:</strong></span> These technologies help businesses streamline operations, reduce costs, and increase profitability through automation and data-driven insights.
+            </p>
+        </div>
+    </div>
+
+    <!-- Section 4: E-Business vs E-Commerce (Page 8) -->
+    <div class="section-block" id="sec4">
+        <div class="block-header bg-orange" onclick="toggleSection('sec4')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">4</span>
+                <h2>E-Business vs. E-Commerce</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th width="50%">E-Business</th>
+                        <th width="50%">E-Commerce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            • Covers <span class="highlight">all online business activities</span>, including internal processes like supply chain management, customer relationship management (CRM), and digital marketing.
+                        </td>
+                        <td>
+                            • Specifically refers to <span class="highlight">online buying and selling</span> of goods and services.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><em>• Example:</em> Amazon (E-business)</td>
+                        <td><em>• Example:</em> An independent Shopify store (E-commerce)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Section 5: Types of Models (Page 9) -->
+    <div class="section-block" id="sec5">
+        <div class="block-header bg-purple" onclick="toggleSection('sec5')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">5</span>
+                <h2>Types of E-Commerce Models</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div class="grid-2">
+                <div class="model-card">
+                    <span class="model-tag">B2B</span>
+                    <h4>Business-to-Business</h4>
+                    <p>Companies selling to other businesses.</p>
+                    <small>(e.g., Alibaba, Salesforce)</small>
+                </div>
+                <div class="model-card">
+                    <span class="model-tag">B2C</span>
+                    <h4>Business-to-Consumer</h4>
+                    <p>Companies selling to end consumers.</p>
+                    <small>(e.g., Amazon, Walmart online)</small>
+                </div>
+                <div class="model-card">
+                    <span class="model-tag">C2C</span>
+                    <h4>Consumer-to-Consumer</h4>
+                    <p>Individuals selling to each other.</p>
+                    <small>(e.g., eBay, Facebook Marketplace)</small>
+                </div>
+                <div class="model-card">
+                    <span class="model-tag">C2B</span>
+                    <h4>Consumer-to-Business</h4>
+                    <p>Individuals offering services/products to businesses.</p>
+                    <small>(e.g., Fiverr, Upwork)</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Evolution (Page 10) -->
+    <div class="section-block" id="sec6">
+        <div class="block-header bg-gray" onclick="toggleSection('sec6')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">6</span>
+                <h2>Evolution of Digital Business Models</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div class="timeline-item">
+                <strong>• Traditional Business to Digital Transformation:</strong><br>
+                Businesses shifting from brick-and-mortar to online platforms.
+            </div>
+            <div class="timeline-item">
+                <strong>• Dot-Com Boom:</strong><br>
+                The rise of internet-based businesses in the late 1990s and early 2000s.
+            </div>
+            <div class="timeline-item">
+                <strong>• Platform Economy:</strong><br>
+                Growth of marketplaces like Amazon, eBay, and Alibaba.
+            </div>
+            <div class="timeline-item">
+                <strong>• Subscription-Based and On-Demand Models:</strong><br>
+                Companies like Netflix and Uber leveraging digital platforms.
+            </div>
+            <div class="timeline-item">
+                <strong>• AI and Automation:</strong><br>
+                The use of AI-driven chatbots, recommendation engines, and predictive analytics.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Case Studies (Pages 11-13) -->
+    <div class="section-block" id="sec7">
+        <div class="block-header bg-blue" onclick="toggleSection('sec7')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">7</span>
+                <h2>Case Studies of Successful E-Businesses</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            
+            <div class="case-study">
+                <h3>• Amazon:</h3>
+                <p>Evolution from an online bookstore to a global e-commerce leader.</p>
+                <ul>
+                    <li>Use of AI-driven recommendations.</li>
+                    <li>Cloud computing services (AWS).</li>
+                </ul>
+                <div style="background: white; padding: 10px; border-radius: 5px; border: 1px dashed #ccc;">
+                    <strong>• Amazon offers cloud computing solutions through AWS, providing services such as:</strong>
+                    <ul>
+                        <li>Data storage (Amazon S3)</li>
+                        <li>Cloud computing power (EC2)</li>
+                        <li>Machine learning & analytics tools</li>
+                    </ul>
+                    <p><em>Benefit: AWS has become the world's largest cloud service provider, used by major companies like Netflix and Airbnb.</em></p>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h3>• Alibaba:</h3>
+                <p>B2B and B2C platform revolutionizing global trade.</p>
+                <ul>
+                    <li>Marketplace for wholesalers and retailers.</li>
+                    <li>Digital payment integration (Alipay).</li>
+                </ul>
+            </div>
+
+            <div class="case-study">
+                <h3>• Netflix:</h3>
+                <p>Transformation from DVD rental to a global streaming service.</p>
+                <ul>
+                    <li>Subscription-based model.</li>
+                    <li>AI-driven content recommendations.</li>
+                    <li>Global expansion and original content production.</li>
+                </ul>
+            </div>
+
+            <div class="case-study">
+                <h3>• Uber:</h3>
+                <p>Disrupting the transportation industry with an app-based model.</p>
+                <ul>
+                    <li>Gig economy and ride-sharing services.</li>
+                    <li>Dynamic pricing strategy.</li>
+                    <li>Expansion into food delivery (Uber Eats).</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Section 8: Advantages & Challenges (Pages 14-15) -->
+    <div class="section-block" id="sec8">
+        <div class="block-header bg-green" onclick="toggleSection('sec8')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">8</span>
+                <h2>Advantages & Challenges</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div class="grid-2">
+                <div>
+                    <h3 style="color: #27ae60;">Advantages of E-Business</h3>
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li><strong>Global Reach:</strong> Businesses can access international markets.</li>
+                        <li><strong>Cost Efficiency:</strong> Reduced operational costs compared to physical stores.</li>
+                        <li><strong>24/7 Availability:</strong> Customers can make purchases at any time.</li>
+                        <li><strong>Data-Driven Decision Making:</strong> Use of analytics and AI for improved customer experience.</li>
+                        <li><strong>Enhanced Customer Engagement:</strong> Digital marketing and CRM tools allow personalized interactions.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #c0392b;">Challenges in E-Business</h3>
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li><strong>Cybersecurity Risks:</strong> Data breaches and fraud.</li>
+                        <li><strong>Legal and Compliance Issues:</strong> GDPR, CCPA, and other data privacy laws.</li>
+                        <li><strong>Competition:</strong> High competition in digital markets.</li>
+                        <li><strong>Logistics and Fulfillment:</strong> Ensuring timely deliveries and efficient supply chain management.</li>
+                        <li><strong>Technology Dependence:</strong> Need for continuous tech upgrades and maintenance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 9: Homework (Pages 16-18) -->
+    <div class="section-block" id="sec9">
+        <div class="block-header bg-pink" onclick="toggleSection('sec9')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">9</span>
+                <h2>Homework & Assignments</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div class="homework-box">
+                <p><strong>Complete the following tasks based on the topics covered in Week 1.</strong></p>
+                
+                <h4>• Short Answer Questions:</h4>
+                <ul>
+                    <li>Define e-business and explain its key components.</li>
+                    <li>Differentiate between e-business and e-commerce with examples.</li>
+                    <li>Describe two advantages and two challenges of e-business.</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 1.5rem 0;">
+
+                <h4>• Case Study Analysis:</h4>
+                <ul>
+                    <li>Choose one of the case studies (Amazon, Alibaba, Netflix, or Uber) and analyze how it evolved as an e-business.</li>
+                    <li>Identify <span class="highlight">three key strategies</span> that contributed to its success.</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 1.5rem 0;">
+
+                <h4>• Research Activity:</h4>
+                <ul>
+                    <li>Find an emerging e-business startup and explain how it applies digital business models.</li>
+                    <li>Discuss its competitive advantages and potential challenges.</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 1.5rem 0;">
+
+                <h4>• Practical Exercise:</h4>
+                <ul>
+                    <li>Outline a simple e-business idea.</li>
+                    <li>Identify its target audience, business model, and key technologies needed.</li>
+                </ul>
+            </div>
+        </div>
+    <!-- Section 10: Knowledge Check (New) -->
+    <div class="section-block theme-blue" id="sec10">
+        <div class="block-header bg-blue" onclick="toggleSection('sec10')">
+            <div style="display:flex; align-items:center;">
+                <span class="block-number">10</span>
+                <h2>Knowledge Check (Quiz)</h2>
+            </div>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="block-content">
+            <div id="quiz-container-w1">
+                <!-- Quiz will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizDataW1 = [
+            {
+                question: "1. What does E-business primarily refer to?",
+                options: ["Only selling products on Amazon", "Using digital technologies to conduct business operations", "Sending emails to customers", "Building physical stores"],
+                answer: 1
+            },
+            {
+                question: "2. Which of these is a component of E-business but NOT necessarily E-commerce?",
+                options: ["Online sales", "Customer Relationship Management (CRM)", "Selling on eBay", "B2C transactions"],
+                answer: 1
+            },
+            {
+                question: "3. What is B2B in e-commerce models?",
+                options: ["Business-to-Buyer", "Business-to-Business", "Buyer-to-Business", "Build-to-Business"],
+                answer: 1
+            }
+        ];
+
+        function renderQuizW1() {
+            const container = document.getElementById('quiz-container-w1');
+            quizDataW1.forEach((item, index) => {
+                const quizItem = document.createElement('div');
+                quizItem.style.marginBottom = '20px';
+                quizItem.style.padding = '15px';
+                quizItem.style.background = '#f9f9f9';
+                quizItem.style.borderRadius = '8px';
+                quizItem.style.borderLeft = '4px solid var(--pastel-blue)';
+
+                const qText = document.createElement('div');
+                qText.style.fontWeight = 'bold';
+                qText.style.marginBottom = '10px';
+                qText.innerText = item.question;
+
+                const opts = document.createElement('div');
+                opts.style.display = 'flex';
+                opts.style.flexDirection = 'column';
+                opts.style.gap = '8px';
+
+                item.options.forEach((opt, oIdx) => {
+                    const btn = document.createElement('button');
+                    btn.innerText = opt;
+                    btn.style.padding = '8px 12px';
+                    btn.style.textAlign = 'left';
+                    btn.style.border = '1px solid #ddd';
+                    btn.style.background = 'white';
+                    btn.style.borderRadius = '4px';
+                    btn.style.cursor = 'pointer';
+                    btn.onclick = () => {
+                        const allBtns = opts.querySelectorAll('button');
+                        allBtns.forEach(b => b.disabled = true);
+                        if (oIdx === item.answer) {
+                            btn.style.background = '#dcfce7';
+                            btn.style.borderColor = '#22c55e';
+                        } else {
+                            btn.style.background = '#fee2e2';
+                            btn.style.borderColor = '#ef4444';
+                            allBtns[item.answer].style.background = '#dcfce7';
+                        }
+                    };
+                    opts.appendChild(btn);
+                });
+
+                quizItem.appendChild(qText);
+                quizItem.appendChild(opts);
+                container.appendChild(quizItem);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', renderQuizW1);
+    </script>
+
+<script>
+    function toggleSection(id) {
+        const section = document.getElementById(id);
+        section.classList.toggle('collapsed');
+    }
+</script>
+
+<script src="global.js"></script>
+</body>
+</html>

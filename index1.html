@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Business Models & Strategies - Study Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        :root {
+            --bg-paper: #f9f9f9;
+            --line-color: #d1e3f0;
+            --text-color: #2c3e50;
+            --highlight-yellow: #fff3cd; /* Softer digital highlight */
+            --highlight-text: #856404;
+            --pastel-blue: #d4e6f1;
+            --pastel-orange: #fae5d3;
+            --pastel-green: #d5f5e3;
+            --pastel-pink: #fadbd8;
+            --pastel-purple: #ebdef0;
+            --header-blue: #2980b9;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-paper);
+            /* Lined paper effect */
+            background-image: linear-gradient(var(--line-color) 1px, transparent 1px);
+            background-size: 100% 2rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Sidebar line (red margin) common in notebooks */
+        body::before {
+            content: "";
+            position: fixed;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: rgba(255, 99, 71, 0.3);
+            z-index: -1;
+            display: none; /* Hidden on mobile, shown on desktop */
+        }
+
+        @media (min-width: 768px) {
+            body::before {
+                display: block;
+            }
+            body {
+                padding-left: 60px; /* Space for the margin line */
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Main Title */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--header-blue);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .instructors {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Block System */
+        .section-block {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .section-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        .block-header {
+            padding: 15px 25px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .block-number {
+            background: rgba(255,255,255,0.6);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 15px;
+        }
+
+        .block-content {
+            padding: 25px;
+        }
+
+        /* Color Themes for Sections */
+        .theme-blue .block-header { background-color: var(--pastel-blue); color: #21618c; }
+        .theme-orange .block-header { background-color: var(--pastel-orange); color: #9c640c; }
+        .theme-green .block-header { background-color: var(--pastel-green); color: #1e8449; }
+        .theme-pink .block-header { background-color: var(--pastel-pink); color: #943126; }
+        .theme-purple .block-header { background-color: var(--pastel-purple); color: #6c3483; }
+
+        /* Typography & Highlighting */
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background-color: #fff9c4; /* Vivid yellow highlighter */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #333;
+            box-shadow: inset 0 -8px 0 rgba(255, 241, 118, 0.5); /* Marker effect */
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        /* Specific Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--header-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Table Design */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--pastel-green);
+            color: #1e8449;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        /* Quiz Section */
+        .quiz-item {
+            background: #f8f9fa;
+            border-left: 4px solid var(--header-blue);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .option-btn:hover {
+            background: #e9ecef;
+        }
+
+        .option-btn.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            font-weight: 600;
+        }
+
+        .option-btn.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-style: italic;
+            height: 20px; /* prevent layout jump */
+        }
+        
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--header-blue);
+        }
+
+        .arabic-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            display: block;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 4px;
+            border-right: 3px solid #ddd;
+            padding-right: 8px;
+            background-color: #f8f9fa;
+            padding: 4px 8px 4px 0;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="nav-dots" id="navDots">
+        <!-- Generated by JS -->
+    </div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header id="top">
+            <h1>Week 2: E-Business Models & Strategies</h1>
+            <div class="instructors">
+                DR. MOHAMED EL-MAHY | ENG. SARAH HASSAN
+            </div>
+        </header>
+
+        <!-- Section 1: Marketplace Analysis -->
+        <div class="section-block theme-blue" id="sec-marketplace">
+            <div class="block-header">
+                <span>Marketplace Analysis</span>
+                <span class="block-number">01</span>
+            </div>
+            <div class="block-content">
+                <p>
+                    <span class="highlight">Marketplace:</span> An online platform that connects buyers and sellers, facilitating transactions <strong>without holding inventory</strong>.
+                </p>
+                <p>The success of e-commerce marketplaces depends on 4 key factors:</p>
+                <ul>
+                    <li>Market Demand</li>
+                    <li>Competition</li>
+                    <li>Technology</li>
+                    <li>Customer Behavior</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2: Key Factors Detail -->
+        <div class="section-block theme-orange" id="sec-factors">
+            <div class="block-header">
+                <span>Key Success Factors (Detailed)</span>
+                <span class="block-number">02</span>
+            </div>
+            <div class="block-content">
+                <div class="grid-3">
+                    <!-- Factor 1 -->
+                    <div class="card">
+                        <span class="card-title">1. Market Demand</span>
+                        <p><strong>Definition:</strong> The need and desire for a particular product or service among consumers.</p>
+                        <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                        <p><strong>Examples:</strong></p>
+                        <ul style="font-size: 0.9rem;">
+                            <li><span class="highlight">Amazon:</span> Uses analytics to decide promotion & restocking.</li>
+                            <li><span class="highlight">Alibaba:</span> Targets global B2B businesses for bulk purchases.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Factor 2 -->
+                    <div class="card">
+                        <span class="card-title">2. Competition</span>
+                        <p><strong>Definition:</strong> The presence of rival businesses offering similar products/services.</p>
+                        <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                        <p><strong>Example: eBay vs. Amazon</strong></p>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>eBay:</strong> Auctions & Bidding.</li>
+                            <li><strong>Amazon:</strong> Fixed Pricing & Fast Shipping.</li>
+                        </ul>
+                        <!-- Added Arabic text from Page 4 -->
+                        <span class="arabic-text">يتيح موقع ebay المزايدات والمنافسة في الأسعار، بينما تركز أمازون على الأسعار الثابتة والشحن السريع.</span>
+                    </div>
+
+                    <!-- Factor 3 -->
+                    <div class="card">
+                        <span class="card-title">3. Technology</span>
+                        <p><strong>Definition:</strong> Use of digital tools, AI, and automation to improve functionality & UX.</p>
+                        <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                        <p><strong>Examples:</strong></p>
+                        <ul style="font-size: 0.9rem;">
+                            <li><span class="highlight">AI Recommendations:</span> (Amazon) based on past purchases.</li>
+                            <li><span class="highlight">Chatbots:</span> Automated support (Shopify).</li>
+                            <li><span class="highlight">Secure Payments:</span> PayPal, Stripe, Apple Pay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Competitive Analysis -->
+        <div class="section-block theme-green" id="sec-analysis">
+            <div class="block-header">
+                <span>Competitive Analysis Table</span>
+                <span class="block-number">03</span>
+            </div>
+            <div class="block-content">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Marketplace</th>
+                                <th>Model</th>
+                                <th>Strengths</th>
+                                <th>Weaknesses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Amazon</strong></td>
+                                <td>B2C, B2B</td>
+                                <td>Wide product variety, strong logistics, brand trust</td>
+                                <td>High competition, fees for sellers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>eBay</strong></td>
+                                <td>C2C, B2C</td>
+                                <td>Auction model, global reach</td>
+                                <td>Fraud risks, seller competition</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alibaba</strong></td>
+                                <td>B2B, B2C</td>
+                                <td>Wholesale focus, international trade</td>
+                                <td>Quality control issues</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Etsy</strong></td>
+                                <td>C2C, Niche</td>
+                                <td>Handmade/vintage products, loyal customer base</td>
+                                <td>Limited scalability</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: AI & Chatbots -->
+        <div class="section-block theme-pink" id="sec-ai">
+            <div class="block-header">
+                <span>AI & Chatbots Integration</span>
+                <span class="block-number">04</span>
+            </div>
+            <div class="block-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3>Role of AI in E-Business</h3>
+                        <ul>
+                            <li>
+                                <strong>Personalization:</strong> AI-driven recommendations (e.g., Netflix, Amazon).
+                            </li>
+                            <li>
+                                <strong>Automation:</strong> Streamlining operations like inventory and logistics.
+                                <!-- Added Arabic text from Page 7 -->
+                                <span class="arabic-text">تبسيط العمليات باستخدام الذكاء الاصطناعي، بما في ذلك المخزون.</span>
+                            </li>
+                            <li>
+                                <strong>Fraud Detection:</strong> AI-powered security to detect anomalies and prevent online fraud.
+                                <!-- Added Arabic text from Page 7 -->
+                                <span class="arabic-text">تعزيز الأمان باستخدام الذكاء الاصطناعي لمنع السرقة عبر الإنترنت.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3>Chatbots in Customer Service</h3>
+                        <ul>
+                            <li>Provide <span class="highlight">24/7 Support</span> (e.g., ChatGPT, Siri, Alexa).</li>
+                            <li>Automate order tracking, FAQs, and interactions.</li>
+                            <li>Improve response time and <span class="highlight">reduce operational costs</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Case Studies -->
+        <div class="section-block theme-purple" id="sec-cases">
+            <div class="block-header">
+                <span>Case Studies</span>
+                <span class="block-number">05</span>
+            </div>
+            <div class="block-content">
+                <div class="grid-3">
+                    <div class="card" style="border-left: 4px solid #9b59b6;">
+                        <span class="card-title">Sephora</span>
+                        <p>Uses a Virtual Assistant AI chatbot to provide <strong>beauty recommendations</strong>.</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid #e74c3c;">
+                        <span class="card-title">H&M</span>
+                        <p>Chatbot assists customers in choosing outfits based on user preferences.</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid #2ecc71;">
+                        <span class="card-title">Banking (e.g., Erica)</span>
+                        <p>Bank of America's AI handles transactions and financial queries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Quiz -->
+        <div class="section-block theme-blue" id="sec-quiz">
+            <div class="block-header">
+                <span>Knowledge Check</span>
+                <span class="block-number">06</span>
+            </div>
+            <div class="block-content" id="quiz-container">
+                <!-- Quiz questions injected by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Quiz Data
+        const quizData = [
+            {
+                question: "1. What is one major advantage of using AI in e-business?",
+                options: ["Reducing internet speed", "Improving personalization and recommendations", "Increasing manual work", "Limiting business reach"],
+                answer: 1 // Index B
+            },
+            {
+                question: "2. How do chatbots improve customer service in e-business?",
+                options: ["By replacing all human employees", "By increasing product prices", "By providing instant support and automating responses", "By reducing website traffic"],
+                answer: 2 // Index C
+            },
+            {
+                question: "3. Which of the following is an example of AI-driven marketing?",
+                options: ["Manual billboard advertising", "Sending the same email to all customers", "Predictive analytics for personalized recommendations", "Selling only through physical stores"],
+                answer: 2 // Index C
+            },
+            {
+                question: "4. What is the main role of AI in fraud detection for e-business?",
+                options: ["Delaying transaction processes", "Automatically declining all transactions", "Detecting unusual patterns and preventing fraud", "Increasing the number of fraudulent activities"],
+                answer: 2 // Index C
+            },
+            {
+                question: "5. Which company uses an AI chatbot to help customers with beauty recommendations?",
+                options: ["Netflix", "Sephora", "Amazon", "Uber"],
+                answer: 1 // Index B
+            },
+            {
+                question: "6. How does AI-driven personalization enhance customer experience?",
+                options: ["Provides same recommendations to all", "Tracks & analyzes behavior to offer tailored content", "Limits users' choices", "Removes human interaction entirely"],
+                answer: 1 // Index B
+            },
+            {
+                question: "7. How does NLP improve chatbot efficiency?",
+                options: ["Enables understanding & generating human-like text", "Restricts conversation to scripts", "Prevents emotion analysis", "Dependent on manual keywords"],
+                answer: 0 // Index A
+            },
+            {
+                question: "8. Which is NOT a major benefit of using AI in fraud detection for e-business?",
+                options: ["Identifying unusual spending patterns in real time", "Preventing unauthorized transactions with predictive analytics", "Slowing down transaction speeds to allow manual fraud checks", "Enhancing cybersecurity by analyzing large data sets"],
+                answer: 2 // Index C
+            },
+            {
+                question: "9. Suggesting complementary products based on past purchases is an example of:",
+                options: ["Reinforcement Learning", "Rule-Based Processing", "Predictive Analytics", "Heuristic Programming"],
+                answer: 2 // Index C
+            },
+            {
+                question: "10. Primary way AI chatbots reduce operational costs?",
+                options: ["Eliminating inventory", "Automating repetitive inquiries & reducing labor", "Replacing all marketing", "Minimizing cybersecurity needs"],
+                answer: 1 // Index B
+            },
+             {
+                question: "11. Primary function of ML algorithms in customer behavior analysis?",
+                options: ["Manually assign groups", "Analyze large data sets to identify trends", "Randomly generate ads", "Prevent repeat purchases"],
+                answer: 1 // Index B
+            }
+        ];
+
+        // Render Quiz
+        const quizContainer = document.getElementById('quiz-container');
+
+        quizData.forEach((item, index) => {
+            const quizItem = document.createElement('div');
+            quizItem.className = 'quiz-item';
+
+            const questionText = document.createElement('div');
+            questionText.className = 'question';
+            questionText.innerText = item.question;
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+
+            const feedback = document.createElement('div');
+            feedback.className = 'feedback';
+            feedback.id = `feedback-${index}`;
+
+            item.options.forEach((opt, optIndex) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(btn, optIndex, item.answer, index);
+                optionsDiv.appendChild(btn);
+            });
+
+            quizItem.appendChild(questionText);
+            quizItem.appendChild(optionsDiv);
+            quizItem.appendChild(feedback);
+            quizContainer.appendChild(quizItem);
+        });
+
+        function checkAnswer(btn, selectedIndex, correctIndex, questionIndex) {
+            const parent = btn.parentElement;
+            const buttons = parent.getElementsByClassName('option-btn');
+            const feedback = document.getElementById(`feedback-${questionIndex}`);
+
+            // Disable all buttons for this question
+            Array.from(buttons).forEach(b => b.disabled = true);
+
+            if (selectedIndex === correctIndex) {
+                btn.classList.add('correct');
+                feedback.innerText = "Correct! Well done.";
+                feedback.style.color = "#155724";
+            } else {
+                btn.classList.add('incorrect');
+                buttons[correctIndex].classList.add('correct'); // Show correct answer
+                feedback.innerText = "Incorrect. The correct answer is highlighted.";
+                feedback.style.color = "#721c24";
+            }
+        }
+
+        // Navigation Dots
+        const sections = document.querySelectorAll('.section-block, header');
+        const navDotsContainer = document.getElementById('navDots');
+
+        sections.forEach((sec) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.title = sec.querySelector('h1') ? "Top" : sec.querySelector('.block-header span').innerText;
+            dot.onclick = () => {
+                sec.scrollIntoView({ behavior: 'smooth' });
+            };
+            navDotsContainer.appendChild(dot);
+        });
+
+        // Scroll Spy for Nav Dots
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section;
+                }
+            });
+
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.remove('active');
+                if (sections[idx] === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+    <script src="global.js"></script>
+</body>
+</html>

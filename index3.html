@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Procurement - Full Study Infographic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        /* إعدادات الخطوط والتنسيق العام */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --sky-blue: #e0f2fe;
+            --sky-blue-text: #0369a1;
+            --soft-orange: #ffedd5;
+            --soft-orange-text: #c2410c;
+            --mint-green: #d1fae5;
+            --mint-green-text: #047857;
+            --light-pink: #fce7f3;
+            --light-pink-text: #be185d;
+            --light-purple: #f3e8ff;
+            --light-purple-text: #7e22ce;
+            --highlighter: #fef08a;
+            --slate-800: #1e293b;
+            --line-color: #add8e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--slate-800);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        /* خلفية الورقة المسطرة */
+        .notebook-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--line-color) 1px, transparent 1px);
+            background-size: 100% 2.2rem;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* تأثير التمييز بالأصفر */
+        .highlight {
+            background-color: var(--highlighter);
+            padding: 2px 6px;
+            font-weight: 700;
+            border-radius: 4px;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        /* رأس الصفحة */
+        header {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-top: 10px solid #38bdf8;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header .sub-info {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* كتل الأقسام */
+        .section-block {
+            margin-bottom: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-block:hover {
+            transform: scale(1.01);
+        }
+
+        .block-header {
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 15px 15px 0 0;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-left: 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-bottom: none;
+        }
+
+        .block-content {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            border-top-left-radius: 0;
+            padding: 35px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+        }
+
+        /* ألوان العناوين */
+        .bg-sky { background-color: var(--sky-blue); color: var(--sky-blue-text); }
+        .bg-orange { background-color: var(--soft-orange); color: var(--soft-orange-text); }
+        .bg-green { background-color: var(--mint-green); color: var(--mint-green-text); }
+        .bg-pink { background-color: var(--light-pink); color: var(--light-pink-text); }
+        .bg-purple { background-color: var(--light-purple); color: var(--light-purple-text); }
+
+        /* تنسيق القوائم */
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        li::before {
+            content: "➜";
+            position: absolute;
+            left: 0;
+            color: currentColor;
+            font-weight: bold;
+        }
+
+        .feature-title {
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: underline;
+        }
+
+        /* كروت الأمثلة */
+        .example-box {
+            background-color: #f8fafc;
+            border-left: 5px solid #0ea5e9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .example-box strong {
+            color: #0369a1;
+            font-size: 1.1rem;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* التجاوب مع الجوال */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .block-content { padding: 20px; }
+            .block-header { font-size: 1rem; padding: 8px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-bg"></div>
+
+    <div class="container">
+        <!-- HEADER (PAGE 1) -->
+        <header>
+            <h1>E-business</h1>
+            <div class="sub-info">WEEK - 4 | Eng/ Sarah Hassan</div>
+        </header>
+
+        <!-- SECTION 1: DEFINITION (PAGE 2) -->
+        <section class="section-block">
+            <div class="block-header bg-sky">1. E-Procurement Definition</div>
+            <div class="block-content">
+                <p style="font-size: 1.2rem;">
+                    <span class="highlight">E-Procurement</span> refers to the use of <span class="highlight">internet-based technologies</span> and platforms to perform purchasing activities electronically.
+                </p>
+                <p style="margin-top: 20px;">
+                    It is an essential component of e-business that streamlines procurement processes by <span class="highlight">automating tasks</span> such as:
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                    <span class="highlight" style="background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd;">Sourcing suppliers</span>
+                    <span class="highlight" style="background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd;">Issuing purchase orders</span>
+                    <span class="highlight" style="background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd;">Receiving goods/services</span>
+                    <span class="highlight" style="background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd;">Processing payments</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KEY FEATURES (PAGE 3) -->
+        <section class="section-block">
+            <div class="block-header bg-orange">2. Key Features of E-Procurement Systems</div>
+            <div class="block-content">
+                <ul style="color: var(--soft-orange-text);">
+                    <li>
+                        <span class="feature-title">Online Supplier Catalogs</span>
+                        Buyers can access supplier products and pricing in <span class="highlight">real time</span>.
+                    </li>
+                    <li>
+                        <span class="feature-title">Electronic Requests for Quotes (e-RFQ)</span>
+                        Automates <span class="highlight">bid collection</span> from suppliers.
+                    </li>
+                    <li>
+                        <span class="feature-title">Purchase Order Automation</span>
+                        Reduces paperwork by generating and transmitting orders <span class="highlight">digitally</span>.
+                    </li>
+                    <li>
+                        <span class="feature-title">Approval Workflows</span>
+                        Ensures purchases are reviewed and <span class="highlight">approved electronically</span>.
+                    </li>
+                    <li>
+                        <span class="feature-title">Real-Time Tracking</span>
+                        Allows monitoring of <span class="highlight">order status</span>, delivery timelines, and spending.
+                    </li>
+                    <li>
+                        <span class="feature-title">Integration with ERP Systems</span>
+                        <span class="highlight">Seamless coordination</span> between procurement and finance/inventory modules.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 3: BENEFITS (PAGE 4) -->
+        <section class="section-block">
+            <div class="block-header bg-green">3. Benefits of E-Procurement</div>
+            <div class="block-content">
+                <ul style="color: var(--mint-green-text);">
+                    <li><span class="highlight">Cost Reduction</span>: Minimizes manual processes and errors.</li>
+                    <li><span class="highlight">Time Efficiency</span>: Faster supplier selection and order processing.</li>
+                    <li><span class="highlight">Transparency</span>: Full visibility into procurement activity and budget tracking.</li>
+                    <li><span class="highlight">Improved Supplier Management</span>: Enables better communication, performance analysis, and negotiation.</li>
+                    <li><span class="highlight">Compliance</span>: Enforces policies and spending limits.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CHALLENGES (PAGE 5) -->
+        <section class="section-block">
+            <div class="block-header bg-pink">4. Challenges of E-Procurement</div>
+            <div class="block-content">
+                <ul style="color: var(--light-pink-text);">
+                    <li>Resistance to change from traditional procurement staff.</li>
+                    <li>High initial <span class="highlight">implementation cost</span>.</li>
+                    <li>Integration difficulties with legacy systems.</li>
+                    <li>Supplier adoption issues, especially with smaller vendors.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PLATFORMS (PAGE 6) -->
+        <section class="section-block">
+            <div class="block-header bg-purple">5. Common E-Procurement Platforms</div>
+            <div class="block-content">
+                <ul style="color: var(--light-purple-text);">
+                    <li><span class="highlight">SAP Ariba</span>: Leading cloud-based procurement solution for sourcing and contract management.</li>
+                    <li><span class="highlight">Coupa</span>: Comprehensive platform for spend management and supplier collaboration.</li>
+                    <li><span class="highlight">Oracle Procurement Cloud</span>: Integrated with Oracle ERP for end-to-end procurement operations.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 6: EXAMPLES (PAGE 7) -->
+        <section class="section-block">
+            <div class="block-header bg-sky">6. Real-World Examples</div>
+            <div class="block-content">
+                <div class="example-box">
+                    <strong>General Electric (GE):</strong>
+                    <p>Saves <span class="highlight">millions annually</span> by consolidating supplier data and automating orders through e-procurement.</p>
+                </div>
+                <div class="example-box">
+                    <strong>Unilever:</strong>
+                    <p>Uses e-procurement tools to improve <span class="highlight">global sourcing efficiency</span> and supplier relationships.</p>
+                </div>
+                <div class="example-box">
+                    <strong>Coca-Cola:</strong>
+                    <p>Implements digital procurement to <span class="highlight">control spending</span> across international operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: MODELS (PAGE 8) -->
+        <section class="section-block">
+            <div class="block-header bg-orange">7. Types of E-Procurement Models</div>
+            <div class="block-content">
+                <ul style="color: var(--soft-orange-text);">
+                    <li><span class="highlight">Buyer-Oriented:</span> The buyer invites suppliers to join their system (e.g., corporate purchasing portals).</li>
+                    <li><span class="highlight">Supplier-Oriented:</span> Suppliers manage online catalogs that buyers can access (e.g., <span class="highlight">Amazon Business</span>).</li>
+                    <li><span class="highlight">Third-Party Marketplaces:</span> Hosted by independent companies that connect multiple buyers and suppliers (e.g., <span class="highlight">Alibaba, Ariba Network</span>).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 8: QUIZ (New) -->
+        <section class="section-block" id="quiz-sec-w4">
+            <div class="block-header bg-green">8. Knowledge Check (Quiz)</div>
+            <div class="block-content">
+                <div id="quiz-container-w4"></div>
+            </div>
+        </section>
+
+        <script>
+            const quizDataW4 = [
+                {
+                    question: "1. What is the primary purpose of E-Procurement?",
+                    options: ["Social Media Marketing", "Automating business purchasing activities", "Hiring new employees", "Designing websites"],
+                    answer: 1
+                },
+                {
+                    question: "2. Which platform is a leading cloud-based procurement solution?",
+                    options: ["SAP Ariba", "Photoshop", "Windows 11", "Slack"],
+                    answer: 0
+                }
+            ];
+
+            function renderQuizW4() {
+                const container = document.getElementById('quiz-container-w4');
+                quizDataW4.forEach((item, index) => {
+                    const qBox = document.createElement('div');
+                    qBox.style.marginBottom = '20px';
+                    qBox.innerHTML = `<p><strong>${item.question}</strong></p>`;
+                    const opts = document.createElement('div');
+                    opts.style.display = 'grid';
+                    opts.style.gap = '10px';
+                    item.options.forEach((opt, idx) => {
+                        const b = document.createElement('button');
+                        b.innerText = opt;
+                        b.style.padding = '10px';
+                        b.style.border = '1px solid #cbd5e1';
+                        b.style.borderRadius = '10px';
+                        b.style.background = 'white';
+                        b.style.cursor = 'pointer';
+                        b.onclick = () => {
+                            Array.from(opts.children).forEach(child => child.disabled = true);
+                            if (idx === item.answer) {
+                                b.style.background = '#d1fae5';
+                            } else {
+                                b.style.background = '#fee2e2';
+                                opts.children[item.answer].style.background = '#d1fae5';
+                            }
+                        };
+                        opts.appendChild(b);
+                    });
+                    qBox.appendChild(opts);
+                    container.appendChild(qBox);
+                });
+            }
+            document.addEventListener('DOMContentLoaded', renderQuizW4);
+        </script>
+            WEEK 4 E-BUSINESS STUDY SHEET | ALL CONTENT PRESERVED
+        </footer>
+    </div>
+
+    <script>
+        // تأثير بسيط للتمرير السلس بين الأقسام
+        document.addEventListener('DOMContentLoaded', () => {
+            const blocks = document.querySelectorAll('.section-block');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            blocks.forEach(block => {
+                observer.observe(block);
+            });
+        });
+    </script>
+    <script src="global.js"></script>
+</body>
+</html>
