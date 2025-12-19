@@ -575,6 +575,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .loader-content {
             text-align: center;
             animation: fadeInScale 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .loader-logo {
@@ -613,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
             height: 4px;
             background: rgba(0,0,0,0.05);
             border-radius: 10px;
-            margin-top: 30px;
+            margin: 30px auto 0 auto;
             overflow: hidden;
             position: relative;
         }
