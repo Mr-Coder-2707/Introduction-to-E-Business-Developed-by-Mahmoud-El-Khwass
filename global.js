@@ -575,7 +575,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 text-align: center;
             }
             
-            .search-container { display: none; }
+            .search-li {
+                width: 100%;
+                order: -1;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--nav-border);
+            }
+            .search-container { 
+                display: flex; 
+                width: 90%;
+                margin: 0 auto;
+            }
+            .search-input {
+                width: 100% !important;
+                background: rgba(255,255,255,0.05);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .search-li {
+                margin-left: 20px;
+            }
         }
 
         /* =========================================
@@ -762,15 +782,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="material-symbols-outlined">menu</span>
         </button>
         <ul class="nav-links">
+            <li class="search-li">
+                <div class="search-container">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input type="text" class="search-input" placeholder="Search topics..." id="siteSearch">
+                </div>
+            </li>
             <li><a href="index.html">Week 1</a></li>
             <li><a href="index1.html">Week 2</a></li>
             <li><a href="index2.html">Week 3</a></li>
             <li><a href="index3.html">Week 4</a></li>
         </ul>
-        <div class="search-container">
-            <span class="material-symbols-outlined search-icon">search</span>
-            <input type="text" class="search-input" placeholder="Search topics..." id="siteSearch">
-        </div>
         <div class="nav-actions">
             <button class="print-btn" title="Print as PDF" id="printBtn">
                 <span class="material-symbols-outlined">print</span>
@@ -956,6 +978,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Search logic (Internal Keyword Search)
+    const siteSearch = document.getElementById('siteSearch');
+    if (siteSearch) {
+        siteSearch.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            const sections = document.querySelectorAll('.section-block, .block, .block-content, .card');
+            
+            sections.forEach(section => {
+                const text = section.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    section.style.display = '';
+                    section.style.animation = 'fadeInScale 0.3s ease-out';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Special handling for the main container if no results
+            const container = document.querySelector('.container');
+            let noResultsMsg = document.getElementById('search-no-results');
+            
+            const anyVisible = Array.from(sections).some(s => s.style.display !== 'none');
+            
+            if (!anyVisible && term !== '') {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'search-no-results';
+                    noResultsMsg.style.textAlign = 'center';
+                    noResultsMsg.style.padding = '50px';
+                    noResultsMsg.innerHTML = `
+                        <span class="material-symbols-outlined" style="font-size: 48px; color: #ccc;">search_off</span>
+                        <p style="color: #666; margin-top: 10px;">No matches found for "${term}"</p>
+                    `;
+                    container.appendChild(noResultsMsg);
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        });
+    }
 
     // Meta Tags for Live Preview consistency
     const metaTags = {
