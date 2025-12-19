@@ -550,6 +550,108 @@ document.addEventListener('DOMContentLoaded', () => {
             .search-container { display: none; }
         }
 
+        /* =========================================
+           LOADING SCREEN
+           ========================================= */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100000;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+
+        body.dark-mode #loader-wrapper {
+            background: #1a1a1a;
+        }
+
+        .loader-content {
+            text-align: center;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        .loader-logo {
+            font-size: 80px;
+            color: var(--nav-hover);
+            margin-bottom: 20px;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        .loader-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        body.dark-mode .loader-name {
+            color: #f5f5f5;
+        }
+
+        .loader-nickname {
+            font-size: 1.1rem;
+            color: var(--nav-hover);
+            font-weight: 600;
+            font-family: 'Courier New', Courier, monospace;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .loader-bar-container {
+            width: 200px;
+            height: 4px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body.dark-mode .loader-bar-container {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .loader-bar {
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--nav-hover), transparent);
+            animation: loadingMove 1.5s infinite linear;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes loadingMove {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
         /* Print Specific Styles */
         @media print {
             .main-navbar, .progress-bar-container, .back-to-top, .nav-dots, .nav-actions, .search-container, .toc-side-menu, .toc-trigger {
@@ -590,6 +692,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+    // --- 0. INJECT LOADING SCREEN ---
+    const loaderHTML = `
+        <div id="loader-wrapper">
+            <div class="loader-content">
+                <span class="material-symbols-outlined loader-logo">terminal</span>
+                <div class="loader-name">Mahmoud Sabry Al-Khawass</div>
+                <div class="loader-nickname">mr-coder-2027</div>
+                <div class="loader-bar-container">
+                    <div class="loader-bar"></div>
+                </div>
+            </div>
+        </div>
+    `;
+    const loaderDiv = document.createElement('div');
+    loaderDiv.innerHTML = loaderHTML;
+    document.body.prepend(loaderDiv.firstElementChild);
+
+    // Hide loader after page load (with small delay for effect)
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader-wrapper');
+        setTimeout(() => {
+            if (loader) loader.classList.add('loader-hidden');
+            // Remove from DOM after transition
+            setTimeout(() => loader?.remove(), 600);
+        }, 1500);
+    });
 
     // --- 2. INJECT HTML NAVIGATION ---
     const navHTML = `
