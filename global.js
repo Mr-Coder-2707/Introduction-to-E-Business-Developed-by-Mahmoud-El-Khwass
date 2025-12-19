@@ -931,16 +931,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // SEO Meta Tags & Open Graph (OG) Tags for Social Media Sharing
     const metaTags = {
-        'description': 'Professional E-Business Study Portal covering digital business models, strategies, e-procurement, and future trends.',
-        'og:title': 'StudyPortal | Professional E-Business Study Material',
-        'og:description': 'Unlock comprehensive e-business knowledge with our premium study portal. Master strategies, models, and future trends.',
-        'og:image': 'https://img.freepik.com/free-vector/digital-marketing-concept-illustration_114360-614.jpg', // Placeholder for professional look
+        'description': 'المنصة التعليمية الشاملة لمادة التجارة الإلكترونية - إعداد محمود صبري. Professional E-Business Study Portal.',
+        'og:title': 'StudyPortal | Mahmoud Sabry El-Khawass',
+        'og:description': 'شاهد المرجع العربي الشامل في تجارة الأعمال الإلكترونية. Master E-Business strategies and future trends.',
+        'og:image': 'mrcoder.png', 
         'og:url': window.location.href,
         'og:type': 'website',
         'twitter:card': 'summary_large_image',
-        'twitter:title': 'StudyPortal | E-Business Study Material',
+        'twitter:title': 'StudyPortal | Mr.Coder',
         'twitter:description': 'Comprehensive E-Business curriculum and resources.',
-        'twitter:image': 'https://img.freepik.com/free-vector/digital-marketing-concept-illustration_114360-614.jpg'
+        'twitter:image': 'mrcoder.png'
     };
 
     Object.entries(metaTags).forEach(([key, value]) => {
@@ -1097,7 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=Check out this awesome E-Business Study Material!" target="_blank" class="share-btn tw">
                 <span class="material-symbols-outlined">chat</span> Twitter
             </a>
-            <a href="https://api.whatsapp.com/send?text=Check out this awesome E-Business Study Material! ${encodeURIComponent(window.location.href)}" target="_blank" class="share-btn wa">
+            <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('شاهد هذا المرجع العربي الشامل في تجارة الأعمال الإلكترونية! 🎓🚀 Check out this awesome E-Business Study Material! ' + window.location.href)}" target="_blank" class="share-btn wa">
                 <span class="material-symbols-outlined">send</span> WhatsApp
             </a>
             <button id="copyLinkBtn" class="share-btn" style="background: var(--pastel-gray); color: var(--nav-text);">
@@ -1144,7 +1144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                 </div>
                             </div>
-                            <div style="color: #e4e6eb; margin-bottom: 15px; font-size: 0.95rem;">Check out this awesome E-Business Study Material! 🎓🚀</div>
+                            <div style="color: #e4e6eb; margin-bottom: 15px; font-size: 0.95rem;">شاهد هذا المرجع العربي الشامل في تجارة الأعمال الإلكترونية! 🎓🚀 Check out this awesome E-Business Study Material!</div>
                             <div style="border: 1px solid #333; border-radius: 8px; overflow: hidden;">
                                 <img src="${metaTags['og:image']}" style="width: 100%; height: 250px; object-fit: cover;">
                                 <div style="padding: 12px; background: #242526;">
