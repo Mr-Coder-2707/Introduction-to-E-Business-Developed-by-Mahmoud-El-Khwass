@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div id="loader-wrapper">
             <div class="loader-content">
                 <span class="material-symbols-outlined loader-logo">terminal</span>
-                <div class="loader-name">Mahmoud Sabry Al-Khawass</div>
+                <div class="loader-name">Mahmoud Sabry El-Khawass</div>
                 <div class="loader-nickname">mr-coder-2027</div>
                 <div class="loader-bar-container">
                     <div class="loader-bar"></div>
@@ -780,10 +780,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); display: flex; justify-content: center;">
                 <span class="material-symbols-outlined" style="font-size: 80px; color: var(--nav-hover);">terminal</span>
             </div>
-            <h2 style="margin-bottom: 1rem; color: var(--nav-hover); font-size: 1.8rem; letter-spacing: -0.5px;">Mahmoud Sabry Al-Khawass</h2>
+            <h2 style="margin-bottom: 1rem; color: var(--nav-hover); font-size: 1.8rem; letter-spacing: -0.5px;">Mahmoud Sabry El-Khawass</h2>
             <p style="margin-bottom: 2rem; line-height: 1.7; color: #555;" id="modalDesc">
                 This academic platform was professionally architected and enhanced by 
-                <strong>Mahmoud Sabry Al-Khawass</strong> to provide a premium e-learning experience.
+                <strong>Mahmoud Sabry El-Khawass</strong> to provide a premium e-learning experience.
             </p>
             <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(102, 126, 234, 0.2); text-align: left;">
                 <strong style="display: block; margin-bottom: 10px; color: #444;">Technical Core:</strong>
@@ -1131,7 +1131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 15px;">
                                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--nav-hover); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">MS</div>
                                 <div>
-                                    <div style="font-weight: 600; color: #e4e6eb;">Mahmoud Sabry Al-Khawass</div>
+                                    <div style="font-weight: 600; color: #e4e6eb;">Mahmoud Sabry El-Khawass</div>
                                     <div style="background: #333; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; color: #b0b3b8;">
                                         <span class="material-symbols-outlined" style="font-size: 12px;">public</span> Public
                                     </div>
