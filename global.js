@@ -1059,13 +1059,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tocTrigger.addEventListener('click', () => tocContainer.classList.toggle('active'));
 
-    const h2s = document.querySelectorAll('h2');
+    const sectionHeaders = document.querySelectorAll('h2, .block-header');
     const tocList = document.getElementById('tocList');
     if (tocList) {
-        h2s.forEach((h2, idx) => {
-            if (!h2.id) h2.id = 'heading-' + idx;
+        sectionHeaders.forEach((header, idx) => {
+            if (!header.id) header.id = 'heading-' + idx;
             const li = document.createElement('li');
-            li.innerHTML = `<a href="#${h2.id}">${h2.innerText}</a>`;
+            // Clean text if it's a block-header (remove the block number span text if it exists)
+            let text = header.innerText;
+            if (header.classList.contains('block-header')) {
+                const span = header.querySelector('span:not(.block-number)');
+                if (span) text = span.innerText;
+                else if (header.textContent.includes('.')) {
+                    // Fallback for Week 4 style headers like "1. E-Procurement Definition"
+                    text = header.innerText;
+                }
+            }
+            li.innerHTML = `<a href="#${header.id}">${text}</a>`;
             tocList.appendChild(li);
         });
     }
