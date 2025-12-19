@@ -929,33 +929,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Search logic (Internal Keyword Search)
 
-    // SEO Meta Tags & Open Graph (OG) Tags for Social Media Sharing
+    // Meta Tags for Live Preview consistency
     const metaTags = {
-        'description': 'المنصة التعليمية الشاملة لمادة التجارة الإلكترونية - إعداد محمود صبري. Professional E-Business Study Portal.',
         'og:title': 'StudyPortal | Mahmoud Sabry El-Khawass',
         'og:description': 'شاهد المرجع العربي الشامل في تجارة الأعمال الإلكترونية. Master E-Business strategies and future trends.',
-        'og:image': 'mrcoder.png', 
+        'og:image': 'https://mr-coder-2707.github.io/Introduction-to-E-Business-Developed-by-Mahmoud-El-Khwass/mrcoder.png', 
         'og:url': window.location.href,
-        'og:type': 'website',
-        'twitter:card': 'summary_large_image',
-        'twitter:title': 'StudyPortal | Mr.Coder',
-        'twitter:description': 'Comprehensive E-Business curriculum and resources.',
-        'twitter:image': 'mrcoder.png'
     };
-
-    Object.entries(metaTags).forEach(([key, value]) => {
-        let tag = document.querySelector(`meta[name="${key}"], meta[property="${key}"]`);
-        if (!tag) {
-            tag = document.createElement('meta');
-            if (key.startsWith('og:')) {
-                tag.setAttribute('property', key);
-            } else {
-                tag.setAttribute('name', key);
-            }
-            document.head.appendChild(tag);
-        }
-        tag.content = value;
-    });
     
     // Add Favicon
     let favicon = document.querySelector('link[rel="icon"]');
@@ -1148,7 +1128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div style="border: 1px solid #333; border-radius: 8px; overflow: hidden;">
                                 <img src="${metaTags['og:image']}" style="width: 100%; height: 250px; object-fit: cover;">
                                 <div style="padding: 12px; background: #242526;">
-                                    <div style="font-size: 0.75rem; color: #b0b3b8; text-transform: uppercase;">${window.location.hostname}</div>
+                                    <div style="font-size: 0.75rem; color: #b0b3b8; text-transform: uppercase;">STUDYPORTAL.ACADEMY</div>
                                     <div style="font-weight: bold; color: #e4e6eb; font-size: 1.05rem; margin-top: 4px;">${metaTags['og:title']}</div>
                                     <div style="font-size: 0.9rem; color: #b0b3b8; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${metaTags['og:description']}</div>
                                 </div>
