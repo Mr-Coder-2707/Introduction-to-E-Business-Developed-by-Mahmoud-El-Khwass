@@ -988,6 +988,12 @@ document.addEventListener('DOMContentLoaded', () => {
             align-items: center;
             gap: 5px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+        .toc-trigger:hover {
+            opacity: 1;
+            padding-left: 12px;
         }
         .toc-trigger span:not(.material-symbols-outlined) {
             writing-mode: vertical-rl;
