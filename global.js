@@ -806,6 +806,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </li>
                 </ul>
             </div>
+            <a href="https://linkhub-portfolio.netlify.app/" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; margin-bottom: 2rem; transition: all 0.3s; box-shadow: 0 8px 20px rgba(118, 75, 162, 0.3); border: 1px solid rgba(255,255,255,0.1);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 25px rgba(118, 75, 162, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(118, 75, 162, 0.3)';">
+                <span class="material-symbols-outlined" style="font-size: 22px;">public</span> Visit My Portfolio
+            </a>
             <p style="font-size: 0.85rem; color: #999;">&copy; 2024-2025. All Rights Reserved.</p>
         </div>
     `;
